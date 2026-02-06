@@ -1,6 +1,9 @@
 :root {
-  --sidenav-closed-width: 54px;
-  --sidenav-open-width: 17em;
+  --sidenav-closed-width: 60px;
+  --sidenav-open-width: 18em;
+  --sidenav-bg: linear-gradient(180deg, #e65c00 0%, #cc5200 100%);
+  --sidenav-accent: #ffd966;
+  --sidenav-text: #fffdf5;
 }
 
 .sidenav {
@@ -10,16 +13,17 @@
   top: 0;
   min-width: 64px;
   height: 100%;
-  background-color: #db3d44;
-  color: var(--light);
+  background: var(--sidenav-bg);
+  color: var(--sidenav-text);
   display: flex;
   flex-direction: column;
   min-width: var(--sidenav-closed-width);
   width: var(--sidenav-closed-width);
-  transition: width 0.2s;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding-bottom: 0.5em;
   overflow-x: hidden;
   z-index: 2000;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
 }
 .sidenav.expanded {
   width: var(--sidenav-open-width);
@@ -31,11 +35,11 @@
 }
 .sidenav-toggle {
   width: var(--sidenav-closed-width);
-  margin-top: 0.5em;
+  margin-top: 0.75em;
   text-align: center;
 }
 .sidenav-toggle:focus-within {
-  outline: 1px dotted white;
+  outline: 1px dotted var(--sidenav-accent);
 }
 
 .sidenav .hamburger .hamburger-inner,
@@ -44,7 +48,7 @@
 .sidenav .hamburger.is-active .hamburger-inner,
 .sidenav .hamburger.is-active .hamburger-inner::before,
 .sidenav .hamburger.is-active .hamburger-inner::after {
-  background-color: #ddd;
+  background-color: var(--sidenav-accent);
 }
 .sidenav .hamburger:focus {
   outline: none;
@@ -54,30 +58,33 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-top: 1em;
 }
 
 .sidenav-item {
   position: relative;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  margin: 4px 8px;
+  padding: 0.5em 0;
   display: flex;
   cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 .sidenav-item:hover {
-  background-color: rgba(221, 221, 221, 0.295);
+  background-color: rgba(255, 217, 102, 0.2);
 }
 
 .sidenav-item.active {
-  background-color: rgba(50, 50, 50, 0.25);
+  background: linear-gradient(90deg, rgba(255, 217, 102, 0.35) 0%, rgba(255, 217, 102, 0.1) 100%);
+  border-left: 3px solid var(--sidenav-accent);
 }
 .sidenav-item.active:hover {
-  background-color: rgba(25, 25, 25, 0.35);
+  background: linear-gradient(90deg, rgba(255, 217, 102, 0.45) 0%, rgba(255, 217, 102, 0.2) 100%);
 }
 .sidenav-item:active,
 .sidenav-item.active:active {
-  background-color: rgba(25, 25, 25, 0.5);
+  background-color: rgba(255, 217, 102, 0.3);
+  transform: scale(0.98);
 }
 
 .sidenav-icon {
@@ -86,16 +93,22 @@
   text-align: center;
   border: none;
   background-color: unset;
-  color: unset;
+  color: var(--sidenav-accent);
+  transition: color 0.2s ease;
+}
+.sidenav-item:hover .sidenav-icon {
+  color: #fff8e7;
 }
 .sidenav-icon:focus-visible {
-  outline: 1px dotted white;
+  outline: 1px dotted var(--sidenav-accent);
 }
 .sidenav-text {
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease;
   width: calc(var(--sidenav-open-width) - var(--sidenav-closed-width));
   min-width: calc(var(--sidenav-open-width) - var(--sidenav-closed-width));
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 .expanded .sidenav-text {
   opacity: 1;
@@ -103,10 +116,10 @@
 
 .sidenav-extra {
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease;
   margin-left: var(--sidenav-closed-width);
   min-width: calc(var(--sidenav-open-width) - var(--sidenav-closed-width));
-  font-size: 0.9em;
+  font-size: 0.85em;
   display: none;
 }
 .expanded .sidenav-extra {
@@ -115,9 +128,14 @@
 }
 
 .sidenav-extra .list-group-item {
-  background-color: rgba(221, 221, 221, 0.137);
-  border-color: rgba(255, 255, 255, 0.125);
-  padding: 0.4rem 0.7rem;
+  background-color: rgba(255, 253, 245, 0.1);
+  border-color: rgba(255, 217, 102, 0.25);
+  padding: 0.6rem 0.8rem;
+  color: var(--sidenav-text);
+  transition: background-color 0.2s ease;
+}
+.sidenav-extra .list-group-item:hover {
+  background-color: rgba(255, 253, 245, 0.15);
 }
 
 .sidenav-extra h1 {
@@ -132,6 +150,8 @@
 }
 .sidenav-extra .setting-desc {
   margin-right: 0.5em;
+  color: var(--sidenav-accent);
+  font-weight: 500;
 }
 
 .main-container {
@@ -142,4 +162,5 @@
 main {
   height: 100%;
   overflow: auto;
+  background: linear-gradient(135deg, #fffdf5 0%, #fff8e7 100%);
 }

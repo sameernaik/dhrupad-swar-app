@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-orange: #e65c00;
+  --primary-orange-light: #ff7b1c;
+  --primary-orange-dark: #cc5200;
+  --yellow: #f5a623;
+  --yellow-light: #ffd966;
+  --yellow-pale: #fff8e7;
+  --cream: #fffdf5;
+  --dark-charcoal: #2c2c2c;
+  --warm-gray: #6b6b6b;
+  --soft-shadow: rgba(230, 92, 0, 0.1);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -12,11 +27,11 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--yellow-pale) 100%);
+  color: var(--dark-charcoal);
 }
 
 #root {
@@ -31,7 +46,11 @@ body {
   flex-grow: 1;
 }
 
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  color: var(--primary-orange-dark);
+}
 
 h3 {
   margin-top: 1rem;
@@ -39,10 +58,26 @@ h3 {
 }
 
 select {
-  border: 0.05rem solid #777777;
-  padding: 0.25rem;
+  border: 1px solid var(--yellow);
+  padding: 0.5rem 0.75rem;
   background-color: #ffffff;
-  border-radius: 0.25rem;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: var(--dark-charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+select:hover {
+  border-color: var(--primary-orange);
+  box-shadow: 0 2px 8px var(--soft-shadow);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(230, 92, 0, 0.1);
 }
 
 .app {
@@ -137,7 +172,15 @@ select {
   display: block;
 }
 .freq-note {
-  font-size: 24px;
+  font-size: 28px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  color: var(--primary-orange-dark);
+}
+.freq-hz {
+  font-family: 'Lato', sans-serif;
+  color: var(--warm-gray);
+  font-size: 14px;
 }
 .freq-container {
   display: flex;
@@ -150,6 +193,7 @@ select {
   right: 0;
   top: 0;
   bottom: 0;
+  background: radial-gradient(circle at center, rgba(245, 166, 35, 0.08) 0%, transparent 70%);
 }
 .freq-pointer {
   position: absolute;
@@ -162,11 +206,15 @@ select {
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 20px;
+  font-size: 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  color: var(--primary-orange-dark);
 }
 .freq-octave {
   font-size: 0.6em;
   vertical-align: sub;
+  color: var(--yellow);
 }
 .freq-surround {
   position: relative;
@@ -175,6 +223,7 @@ select {
   min-height: 300px;
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--yellow-pale) 100%);
 }
 
 
@@ -186,5 +235,37 @@ select {
 .setting > *:first-child {
   display: block;
   text-align: left;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--yellow-pale);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-orange);
+}
+
+/* Bootstrap overrides for classy look */
+.navbar {
+  padding: 1rem 1.5rem !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-light) 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-orange-light) 0%, var(--primary-orange) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 92, 0, 0.3);
 }

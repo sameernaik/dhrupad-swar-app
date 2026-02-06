@@ -46,8 +46,28 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
 
   return (
     <React.Fragment>
-      <Navbar bg="primary" variant="dark">
-        <Navbar.Brand>Dhrupad Swar Analyzer</Navbar.Brand>
+      <Navbar 
+        style={{ 
+          background: 'linear-gradient(90deg, #e65c00 0%, #ff7b1c 100%)',
+          borderBottom: '3px solid #ffd966',
+          boxShadow: '0 2px 15px rgba(230, 92, 0, 0.2)'
+        }} 
+        variant="dark"
+      >
+        <Navbar.Brand 
+          style={{ 
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: '1.5rem',
+            fontWeight: 600,
+            letterSpacing: '1px',
+            color: '#fffdf5',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+          }}
+        >
+          <span style={{ color: '#ffd966', marginRight: '8px' }}>॥</span>
+          Dhrupad Swar Analyzer
+          <span style={{ color: '#ffd966', marginLeft: '8px' }}>॥</span>
+        </Navbar.Brand>
       </Navbar>
       <div className="main-container">
         <SideNav expanded={menuExpanded} onToggle={setMenuExpanded}>
