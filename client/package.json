@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://github.com/sameernaik/pitch-detection-app",
+  "homepage": "https://sameernaik.github.io/dhrupad-swar-app",
   "license": "MIT",
   "private": true,
   "dependencies": {
