@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dhrupad-swar-app/static/css/main.2562e2be.chunk.css",
-    "main.js": "/dhrupad-swar-app/static/js/main.55b143ae.chunk.js",
-    "main.js.map": "/dhrupad-swar-app/static/js/main.55b143ae.chunk.js.map",
+    "main.js": "/dhrupad-swar-app/static/js/main.f5e8d3ed.chunk.js",
+    "main.js.map": "/dhrupad-swar-app/static/js/main.f5e8d3ed.chunk.js.map",
     "runtime-main.js": "/dhrupad-swar-app/static/js/runtime-main.6d6b66f5.js",
     "runtime-main.js.map": "/dhrupad-swar-app/static/js/runtime-main.6d6b66f5.js.map",
     "static/css/2.1d094132.chunk.css": "/dhrupad-swar-app/static/css/2.1d094132.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.1d094132.chunk.css",
     "static/js/2.20cc040f.chunk.js",
     "static/css/main.2562e2be.chunk.css",
-    "static/js/main.55b143ae.chunk.js"
+    "static/js/main.f5e8d3ed.chunk.js"
   ]
 }
